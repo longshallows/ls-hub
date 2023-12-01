@@ -1,9 +1,9 @@
 name: Deploy
 
 on:
-  #schedule:
-  #  - cron: '5 23 * * 0' # 08:05(Mon) JST
-  workflow_dispatch:
+   schedule:
+     - cron: '0 0　20* * ?' # 20pm UTC - 5am JTC everyday
+    workflow_dispatch:
 
 jobs:
   curl:
@@ -12,5 +12,3 @@ jobs:
     steps:
       - name: curl
         run: curl -X POST '${{ secrets.DEPLOY_HOOK_URL }}'
-        schedule:
-        - cron: '5 23 * * 0' # 8am (Mon) UTC - 08:05(Mon) JST
